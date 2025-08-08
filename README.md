@@ -2,11 +2,18 @@
 
 ## How do I install these formulae?
 
-`brew install honhim/ratisui/<formula>`
+```shell
+brew install honhim/ratisui/ratisui
+```
 
-Or `brew tap honhim/ratisui` and then `brew install <formula>`.
+**Or**
+```shell
+brew tap honhim/ratisui
+brew install ratisui
+```
 
-Or, in a `brew bundle` `Brewfile`:
+**Or**
+in a `brew bundle` `Brewfile`:
 
 ```ruby
 tap "honhim/ratisui"
