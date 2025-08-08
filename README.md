@@ -3,12 +3,12 @@
 ## How do I install these formulae?
 
 ```shell
-brew install honhim/ratisui/ratisui
+brew install honhimW/ratisui/ratisui
 ```
 
 **Or**
 ```shell
-brew tap honhim/ratisui
+brew tap honhimW/ratisui
 brew install ratisui
 ```
 
@@ -16,8 +16,8 @@ brew install ratisui
 in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "honhim/ratisui"
-brew "<formula>"
+tap "honhimW/ratisui"
+brew "ratisui"
 ```
 
 ## Documentation
