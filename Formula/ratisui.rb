@@ -7,7 +7,6 @@ class Ratisui < Formula
   if OS.mac?
     url "https://github.com/honhimW/ratisui/releases/download/0.5.4/ratisui-mac.tar.gz"
     sha256 "0a5aaa950eaa179a4ad58d5470a58d98387a7a14db00b296c5df9f2eeed07724"
-  end
   elsif OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/honhimW/ratisui/releases/download/0.5.4/ratisui-linux-aarch64.tar.gz"
