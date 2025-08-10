@@ -1,14 +1,14 @@
-# Honhim Ratisui
+# Homebrew Tap
 
 ## How do I install these formulae?
 
 ```shell
-brew install honhimW/ratisui/ratisui
+brew install honhimW/tap/ratisui
 ```
 
 **Or**
 ```shell
-brew tap honhimW/ratisui
+brew tap honhimW/tap
 brew install ratisui
 ```
 
@@ -16,7 +16,7 @@ brew install ratisui
 in a `brew bundle` `Brewfile`:
 
 ```ruby
-tap "honhimW/ratisui"
+tap "honhimW/tap"
 brew "ratisui"
 ```
 
