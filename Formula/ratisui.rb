@@ -5,9 +5,7 @@ class Ratisui < Formula
   license all_of: ["MIT"]
 
   if OS.mac?
-    if Hardware::CPU.intel?
-      odie "Intel macOS is not supported"
-    end
+    Hardware::CPU.intel? && odie "Intel macOS is not supported"
     url "https://github.com/honhimW/ratisui/releases/download/0.5.4/ratisui-mac.tar.gz"
     sha256 "0a5aaa950eaa179a4ad58d5470a58d98387a7a14db00b296c5df9f2eeed07724"
   elsif OS.linux?
