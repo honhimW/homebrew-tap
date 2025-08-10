@@ -22,6 +22,6 @@ class Ratisui < Formula
   end
 
   test do
-    system "#{bin}/ratisui --version"
+    system "#{bin}/ratisui", "--version"
   end
 end
