@@ -1,0 +1,14 @@
+name: Dispatch Listener
+
+on:
+  repository_dispatch:
+    types: [update-from-gradle-hash]
+
+jobs:
+  run-on-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo triggered event
+        run: |
+          echo "Repository dispatch event received, update-from-gradle-hash"
+          echo ${{ github.event.client_payload }}
