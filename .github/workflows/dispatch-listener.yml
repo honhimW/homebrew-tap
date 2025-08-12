@@ -31,11 +31,13 @@ jobs:
           LINUX_AMD64_SHA256="${{ github.event.client_payload.linux_amd64_sha256 }}"
           LINUX_AARCH64_SHA256="${{ github.event.client_payload.linux_aarch64_sha256 }}"
           MAC_AARCH64_SHA256="${{ github.event.client_payload.mac_aarch64_sha256 }}"
+          MAC_INTEL_SHA256="${{ github.event.client_payload.mac_intel_sha256 }}"
           cp Formula/ratisui.template Formula/ratisui.rb
           sed -i "s/{{VERSION}}/${VERSION}/g" Formula/ratisui.rb
           sed -i "s/{{LINUX_AMD64_SHA256}}/${LINUX_AMD64_SHA256}/g" Formula/ratisui.rb
           sed -i "s/{{LINUX_AARCH64_SHA256}}/${LINUX_AARCH64_SHA256}/g" Formula/ratisui.rb
           sed -i "s/{{MAC_AARCH64_SHA256}}/${MAC_AARCH64_SHA256}/g" Formula/ratisui.rb
+          sed -i "s/{{MAC_INTEL_SHA256}}/${MAC_INTEL_SHA256}/g" Formula/ratisui.rb
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
