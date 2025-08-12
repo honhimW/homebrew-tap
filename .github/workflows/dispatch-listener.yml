@@ -1,5 +1,9 @@
 name: Dispatch Listener
 
+permissions:
+  contents: write
+  packages: write
+
 on:
   repository_dispatch:
     types: [update-from-gradle-hash]
@@ -14,5 +18,28 @@ jobs:
           echo "version: ${{ github.event.client_payload.version }}"
           echo "linux_amd64_sha256: ${{ github.event.client_payload.linux_amd64_sha256 }}"
           echo "linux_aarch64_sha256: ${{ github.event.client_payload.linux_aarch64_sha256 }}"
-          echo "mac_sha256: ${{ github.event.client_payload.mac_sha256 }}"
+          echo "mac_aarch64_sha256: ${{ github.event.client_payload.mac_aarch64_sha256 }}"
           echo "windows_amd64_sha256: ${{ github.event.client_payload.windows_amd64_sha256 }}"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update formula file
+        run: |
+          VERSION="${{ github.event.client_payload.version }}"
+          LINUX_AMD64_SHA256="${{ github.event.client_payload.linux_amd64_sha256 }}"
+          LINUX_AARCH64_SHA256="${{ github.event.client_payload.linux_aarch64_sha256 }}"
+          MAC_AARCH64_SHA256="${{ github.event.client_payload.mac_aarch64_sha256 }}"
+          cp Formula/ratisui.template Formula/ratisui.rb
+          sed -i "s/{{VERSION}}/${VERSION}/g" Formula/ratisui.rb
+          sed -i "s/{{LINUX_AMD64_SHA256}}/${LINUX_AMD64_SHA256}/g" Formula/ratisui.rb
+          sed -i "s/{{LINUX_AARCH64_SHA256}}/${LINUX_AARCH64_SHA256}/g" Formula/ratisui.rb
+          sed -i "s/{{MAC_AARCH64_SHA256}}/${MAC_AARCH64_SHA256}/g" Formula/ratisui.rb
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/ratisui.rb
+          git commit -m "Bump ratisui ${{ github.event.client_payload.version }}"
+          git push origin main
