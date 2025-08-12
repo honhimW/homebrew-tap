@@ -19,7 +19,7 @@ jobs:
           echo "linux_amd64_sha256: ${{ github.event.client_payload.linux_amd64_sha256 }}"
           echo "linux_aarch64_sha256: ${{ github.event.client_payload.linux_aarch64_sha256 }}"
           echo "mac_aarch64_sha256: ${{ github.event.client_payload.mac_aarch64_sha256 }}"
-          echo "windows_amd64_sha256: ${{ github.event.client_payload.windows_amd64_sha256 }}"
+          echo "mac_intel_sha256: ${{ github.event.client_payload.mac_intel_sha256 }}"
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
