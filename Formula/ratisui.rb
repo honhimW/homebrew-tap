@@ -1,22 +1,26 @@
 class Ratisui < Formula
   desc "Redis TUI build with Ratatui, written in Rust"
   homepage "https://github.com/honhimW/ratisui"
-  # version "0.5.4"
+  # version "x.y.z"
   license all_of: ["MIT"]
 
   release_version = ""
 
   if OS.mac?
-    odie "Intel macOS is not supported" if Hardware::CPU.intel?
-    url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-mac.tar.gz"
-    sha256 "6f4d9805698b9309677a26f6e363167b687cdb7645150f614b418682648771c8"
+    if Hardware::CPU.intel?
+      url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-mac-intel.tar.gz"
+      sha256 "6739d0d6aaf4b48e6d5c00edca23693f5f46b41170b0f2e98d9f3b83f47975be"
+    else
+      url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-mac-aarch64.tar.gz"
+      sha256 "a36155558aa57aa07bf1f368e7ec5c68727bab01efb81092c0e5e2a10bca3aef"
+    end
   elsif OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-linux-aarch64.tar.gz"
-      sha256 "9534b956b7c9f0dc5c00a44febf2475d6f79bfd86880c2b384c3534063b72e91"
+      sha256 "5b99976a49e6a64fb7609d38a040c902b9a7938bc621c1a7d21d43b0fbe766fa"
     else
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-linux-amd64.tar.gz"
-      sha256 "3572c562053d27d5b52f570df1134fb1facc3451a50897d93a85d0ddd9c2987c"
+      sha256 "603a82f530c98f891325bf22e2ea132322231517eadbe3deddffbe7a27f44078"
     end
   end
 
