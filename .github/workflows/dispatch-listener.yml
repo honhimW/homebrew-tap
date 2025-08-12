@@ -1,0 +1,18 @@
+name: Dispatch Listener
+
+on:
+  repository_dispatch:
+    types: [update-from-gradle-hash]
+
+jobs:
+  run-on-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo triggered event
+        run: |
+          echo "Repository dispatch event received, update-from-gradle-hash"
+          echo "version: ${{ github.event.client_payload.version }}"
+          echo "linux_amd64_sha256: ${{ github.event.client_payload.linux_amd64_sha256 }}"
+          echo "linux_aarch64_sha256: ${{ github.event.client_payload.linux_aarch64_sha256 }}"
+          echo "mac_sha256: ${{ github.event.client_payload.mac_sha256 }}"
+          echo "windows_amd64_sha256: ${{ github.event.client_payload.windows_amd64_sha256 }}"
