@@ -6,7 +6,7 @@ permissions:
 
 on:
   repository_dispatch:
-    types: [update-from-gradle-hash]
+    types: [ratisui-release]
 
 jobs:
   run-on-dispatch:
