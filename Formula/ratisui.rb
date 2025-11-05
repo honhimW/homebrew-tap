@@ -4,23 +4,23 @@ class Ratisui < Formula
   # version "x.y.z"
   license all_of: ["MIT"]
 
-  release_version = "0.6.0"
+  release_version = "0.6.1"
 
   if OS.mac?
     if Hardware::CPU.intel?
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-mac-intel.tar.gz"
-      sha256 "c9c8994f631f1d32ae5b54ffac1bcd7a28589c47f0f0bc4f0af129b6b34b59a8"
+      sha256 "9072f909770f68b05182dc5f343e678022330b05f6490729c000cb6fdb408b9f"
     else
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-mac-aarch64.tar.gz"
-      sha256 "66dd0473bbaa544ff226e08f5bb50ca99d2865f3a97582b73649780b593dd844"
+      sha256 "ef7b6faf0e72e23f868c1ba06abcb66c6f1ad609a33e0ecb391abebb6fd3996c"
     end
   elsif OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-linux-aarch64.tar.gz"
-      sha256 "83380dc2e29a918713a2d171e1b8e3e7bbe21028b991d4444efd60371e5d6ee1"
+      sha256 "c56292a5ebfcce86663e90cee4577eaad115a12ab8ad64ce7cf4378914535b28"
     else
       url "https://github.com/honhimW/ratisui/releases/download/#{release_version}/ratisui-linux-amd64.tar.gz"
-      sha256 "957effa610a0fba3a565a867d14199696bb48339eab18fbaace1c834a3360a52"
+      sha256 "12d5f954279337427bfea67099b89b6b9807062fde232245a8eee4916d961b2b"
     end
   end
 
